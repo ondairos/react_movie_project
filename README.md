@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Flick Search React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple Movie search image site bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and
+omdb API.
 
 ## Available Scripts
 
