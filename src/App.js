@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import apiUrl from './helper.js'
 
 import MovieCard from './MovieCard.jsx';
@@ -7,21 +7,15 @@ import MovieCard from './MovieCard.jsx';
 import './App.css'; //import css
 import SearchIcon from './search.svg';
 
-const movie1 = {
-    "Title": "Batman & Robin",
-    "Year": "1997",
-    "imdbID": "tt0118688",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMGQ5YTM1NmMtYmIxYy00N2VmLWJhZTYtN2EwYTY3MWFhOTczXkEyXkFqcGdeQXVyNTA2NTI0MTY@._V1_SX300.jpg"
-}
 
 const App = () => {
+    const [movies, setMovies] = useState([]);
 
     const searchMovies = async (title) => {
         const response = await fetch(`${apiUrl}&s=${title}`); //template strings
         const data = await response.json();
 
-        console.log(data.Search);
+        setMovies(data.Search);
     }
 
     useEffect(() => {
@@ -46,9 +40,23 @@ const App = () => {
                 />
             </div>
 
-            <div className='container'>
-               <MovieCard  movie1={movie1}/>
-            </div>
+            {
+                movies?.length > 0
+                    ? (
+                        <div className='container'>
+                            {movies.map((movie) => (
+                                <MovieCard movie={movie} />
+                            ))}
+                        </div>
+                    ) :
+                    (
+                        <div className='empty'>
+                            <h2>No movies found.</h2>
+                        </div>
+                    )
+            }
+
+
         </div>
     )
 }
