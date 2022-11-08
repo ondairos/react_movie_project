@@ -1,5 +1,7 @@
 # Flick Search React App
 
+Visit deployed up at Vercel: https://flick-search-react.vercel.app/
+
 Simple Movie search image site bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and
 omdb API.
 
