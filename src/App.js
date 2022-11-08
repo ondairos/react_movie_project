@@ -10,6 +10,7 @@ import SearchIcon from './search.svg';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
+    const [SearchTerm, setSearchTerm] = useState('');
 
     const searchMovies = async (title) => {
         const response = await fetch(`${apiUrl}&s=${title}`); //template strings
@@ -29,14 +30,14 @@ const App = () => {
             <div className='search'>
                 <input
                     placeholder='Search for movies'
-                    value="Batman"
-                    onChange={() => { }}
+                    value={SearchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
                 <img
                     src={SearchIcon}
                     alt="search"
-                    onClick={() => { }}
+                    onClick={() => searchMovies(SearchTerm)}
                 />
             </div>
 
