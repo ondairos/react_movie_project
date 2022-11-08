@@ -6,6 +6,7 @@ import MovieCard from './MovieCard.jsx';
 
 import './App.css'; //import css
 import SearchIcon from './search.svg';
+import imageCat from './iggers.png'
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
 
     return (
         <div className="app">
-            <h1>Flik Search</h1>
+            <h1> <img src={imageCat} alt='cat'></img> Flik Search </h1>
 
             <div className='search'>
                 <input
