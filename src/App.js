@@ -7,6 +7,7 @@ import MovieCard from './MovieCard.jsx';
 import './App.css'; //import css
 import SearchIcon from './search.svg';
 import imageCat from './iggers.png'
+import Search from './Search.jsx';
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
         <div className="app">
             <h1> <img src={imageCat} alt='cat'></img> Flik Search </h1>
 
-            <div className='search'>
+            {/* <div className='search'>
                 <input
                     placeholder='Search for movies'
                     value={SearchTerm}
@@ -40,7 +41,8 @@ const App = () => {
                     alt="search"
                     onClick={() => searchMovies(SearchTerm)}
                 />
-            </div>
+            </div> */}
+            <Search SearchTerm={SearchTerm}/>
 
             {
                 movies?.length > 0
