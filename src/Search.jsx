@@ -1,23 +1,26 @@
 import React from "react";
-import App from './App.js'
-import SearchIcon from './search.svg';
-
-
+import SearchIcon from "./search.svg";
 
 const Search = (props) => {
-    
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      props.searchMovies(props.SearchTerm);
+    }
+  };
+
   return (
     <div className="search">
       <input
         placeholder="Search for movies"
         value={props.SearchTerm} //
-        onChange={(e) => App.setSearchTerm(e.target.value)}
+        onChange={(e) => props.setSearchTerm(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
 
       <img
-        src={SearchIcon} //
+        src={SearchIcon}
         alt="search"
-        onClick={() => App.searchMovies(props.SearchTerm)}
+        onClick={() => props.searchMovies(props.SearchTerm)}
       />
     </div>
   );
