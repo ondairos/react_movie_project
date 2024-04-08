@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import apiUrl from "./helper.js";
 
 import MovieCard from "./MovieCard.jsx";
 
@@ -11,6 +10,8 @@ import Search from "./Search.jsx";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [SearchTerm, setSearchTerm] = useState("");
+
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
